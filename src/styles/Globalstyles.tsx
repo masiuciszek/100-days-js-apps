@@ -5,7 +5,6 @@ export const FlexStyle = css`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem;
 `
 
 export default createGlobalStyle`
@@ -15,6 +14,7 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: inherit;
   }
+
   body {
     box-sizing: border-box;
     background: ${props => props.theme.colors.white};
@@ -22,18 +22,20 @@ export default createGlobalStyle`
     height: 100%;
     display: flex;
     flex-direction: column;
-    font-family: 'Fredoka One', cursive;
+    /* font-family: 'Fredoka One', cursive; */
     /* font-family: 'Bangers', cursive; */
-    font-size: 10px;
+    font-family: sans-serif;
+    font-size: ${props => props.theme.appSize};
   }
 
-  .mainApp {
+  .MainApp {
     flex-grow: 1 auto;
   }
 
 
     h1,h2{
-      font-family: 'Bangers',sans-serif;
+      /* font-family: 'Bangers',sans-serif; */
+      font-family: sans-serif;
       text-transform: capitalize;
     }
 

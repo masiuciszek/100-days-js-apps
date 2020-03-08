@@ -6,7 +6,7 @@ const IndexPage = () => (
   <>
     <Layout>
       <AppWrapper>
-        <h1>Hello</h1>
+        <h1>Hello Home Page</h1>
       </AppWrapper>
     </Layout>
   </>
