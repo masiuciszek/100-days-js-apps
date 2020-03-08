@@ -32,7 +32,7 @@ const Menu: React.FC<P> = () => {
     <StyledMenu>
       <StyledNavList>
         {navList.map(x => (
-          <li key={x.id}>
+          <li key={x.text}>
             <Link to={x.to}> {x.text} </Link>
           </li>
         ))}

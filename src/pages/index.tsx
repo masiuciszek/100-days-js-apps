@@ -1,13 +1,14 @@
 import * as React from 'react'
 import Layout from '../components/layout'
-import { AppWrapper } from '../components/styled/Wrapper'
+import { AppWrapper, BgHalfWrapper } from '../components/styled/Wrapper'
+import Hero from '../styles/hero/Hero'
 
 const IndexPage = () => (
   <>
     <Layout>
-      <AppWrapper>
-        <h1>Hello Home Page</h1>
-      </AppWrapper>
+      <Hero>
+        <h1>hero title</h1>
+      </Hero>
     </Layout>
   </>
 )

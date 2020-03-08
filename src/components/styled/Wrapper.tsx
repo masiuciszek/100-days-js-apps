@@ -29,6 +29,6 @@ export const AppWrapper = styled.div`
   }
 `
 
-export const Wrapper = styled.div`
+export const BgHalfWrapper = styled.div`
   ${DefaultStyles};
 `
