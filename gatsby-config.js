@@ -1,5 +1,3 @@
-'use strict'
-
 module.exports = {
   siteMetadata: {
     title: 'gatsby-starter-typescript-plus',
@@ -18,6 +16,12 @@ module.exports = {
       options: {
         name: 'content',
         path: `${__dirname}/src/content`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
       }
     },
     {

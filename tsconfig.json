@@ -3,7 +3,11 @@
     "module": "commonjs",
     "target": "esnext",
     "jsx": "preserve",
-    "lib": ["dom", "es2015", "es2017"],
+    "lib": [
+      "dom",
+      "es2015",
+      "es2017"
+    ],
     "strict": true,
     "noEmit": true,
     "isolatedModules": true,
@@ -12,7 +16,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "removeComments": false,
+    "strictNullChecks": true, /* Enable strict null checks. */
+    "strictFunctionTypes": true, /* Enable strict checking of function types. */
+    "strictBindCallApply": true, /* Enable strict 'bind', 'call', and 'apply' methods on functions. */
+    "strictPropertyInitialization": true, /* Enable strict checking of property initialization in classes. */
+    "alwaysStrict": true, /* Parse in strict mode and emit "use strict" for each source file. */
     "preserveConstEnums": true
   },
-  "include": ["./src/**/*"]
+  "include": [
+    "./src/**/*"
+  ]
 }
