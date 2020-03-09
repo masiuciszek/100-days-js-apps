@@ -12,8 +12,8 @@ interface INode {
       date: string
       keywords: string[]
     }
+    excerpt: string
   }
-  excerpt: string
 }
 
 interface QueryProps {
@@ -46,11 +46,18 @@ const GET_ARTICLES = graphql`
 
 const ArticleList: React.FC<P> = () => {
   const articleListData = useStaticQuery<QueryProps>(GET_ARTICLES)
-
   return (
     <div>
       {articleListData.allMarkdownRemark.edges.map(({ node }) => (
-        <Article key={node.id} id={node.id} to="/" keywords={node.frontmatter.keywords} title={node.frontmatter.title} />
+        <Article
+          key={node.id}
+          id={node.id}
+          to="/"
+          keywords={node.frontmatter.keywords}
+          title={node.frontmatter.title}
+          date={node.frontmatter.date}
+          desc={node.excerpt}
+        />
       ))}
     </div>
   )

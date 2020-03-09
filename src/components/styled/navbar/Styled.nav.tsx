@@ -88,6 +88,13 @@ export const SocialMediaWrapper = styled.div`
   flex-direction: row;
   padding: 1em 0.4em;
   margin-top: 1rem;
+  #myShowCase {
+    a {
+      color: ${({ theme }) => theme.colors.white};
+      font-size: 1.2em;
+      width: 100%;
+    }
+  }
   span,
   a {
     font-size: 1.6em;
@@ -101,10 +108,14 @@ export const SocialMediaWrapper = styled.div`
     height: 3rem;
     box-shadow: ${props => props.theme.shadow.lightShadow};
     display: flex;
+    border-radius: 0.3rem 0 0.3rem 0;
     align-items: center;
+    transition: ${props => props.theme.transition.mainTransition};
+    &:hover {
+      box-shadow: ${props => props.theme.shadow.darkShadow};
+    }
   }
   a {
-    /* padding: 0.2em; */
   }
   @media (max-width: 448px) {
     width: 100%;

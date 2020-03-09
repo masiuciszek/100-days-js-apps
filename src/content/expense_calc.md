@@ -6,7 +6,5 @@ keywords: ["React" ,"JS" ,"project"]
 ---
 
 
-# Hello
-<p>
-  lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2lorem2
-</p>
+# Hello and welcome to the Expence tracker project, built with react Typescript and Redux
+

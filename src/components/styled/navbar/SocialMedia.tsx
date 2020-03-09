@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/interface-name-prefix */
 import * as React from 'react'
+import { Link } from 'gatsby'
 import { SocialMediaWrapper } from './Styled.nav'
 
 interface P {}
@@ -31,7 +32,9 @@ const SocialMedia: React.FC<P> = () => {
   return (
     <SocialMediaWrapper>
       {' '}
-      <span id="myShowCase">Modern 100 Js Apps</span>
+      <span id="myShowCase">
+        <Link to="/">Modern 100 Js Apps</Link>
+      </span>
       {state.map(s => (
         <span key={s.id}>
           <a href={s.url} target="_blank" rel="noopener noreferrer">
