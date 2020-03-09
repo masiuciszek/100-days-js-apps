@@ -1,16 +1,45 @@
 import * as React from 'react'
+import { graphql } from 'gatsby'
 import Layout from '../components/layout'
-import { AppWrapper, BgHalfWrapper } from '../components/styled/Wrapper'
 import Hero from '../styles/hero/Hero'
 
-const IndexPage = () => (
-  <>
-    <Layout>
-      <Hero>
-        <h1>hero title</h1>
-      </Hero>
-    </Layout>
-  </>
-)
+interface Props {
+  data: any
+}
+
+const IndexPage: React.FC<Props> = ({ data }) => {
+  console.log(data)
+  console.log('data')
+  return (
+    <>
+      <Layout>
+        <h1>apa</h1>
+        <Hero>
+          <h1>hero title</h1>
+        </Hero>
+      </Layout>
+    </>
+  )
+}
+
+export const pageQuery = graphql`
+  {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            image
+            date
+            keywords
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
