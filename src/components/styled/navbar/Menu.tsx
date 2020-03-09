@@ -19,11 +19,16 @@ const Menu: React.FC<P> = () => {
     },
     {
       id: 2,
+      text: 'projects',
+      to: '/projects'
+    },
+    {
+      id: 3,
       text: 'about',
       to: '/about'
     },
     {
-      id: 1,
+      id: 4,
       text: 'contact',
       to: '/contact'
     }

@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 import { FlexStyle } from '../../../styles/Globalstyles'
+import { FadeIn } from '../animation'
 
 export const StyledNav = styled.nav`
   padding: 1rem 0.5rem;
-  background: ${props => props.theme.colors.primary};
+  /* background: ${props => props.theme.colors.primary}; */
+  background: none;
   position: relative;
   #NavMenu {
     position: absolute;
@@ -47,7 +49,6 @@ export const NavTitle = styled.nav`
   &:hover {
     transform: rotate(0deg);
     color: ${({ theme }) => theme.colors.common};
-    background: ${({ theme }) => theme.colors.primary};
   }
 `
 
@@ -61,6 +62,8 @@ export const StyledMenu = styled.div`
   color: ${({ theme }) => theme.colors.white};
   ${FlexStyle};
   z-index: 2;
+  transition: ${props => props.theme.transition.mainTransition};
+  animation: ${FadeIn} 300ms ease-in-out;
 `
 
 export const StyledNavList = styled.ul`
@@ -77,6 +80,37 @@ export const StyledNavList = styled.ul`
     &:hover {
       background: ${({ theme }) => theme.colors.white};
       color: ${({ theme }) => theme.colors.common};
+    }
+  }
+`
+export const SocialMediaWrapper = styled.div`
+  ${FlexStyle};
+  flex-direction: row;
+  padding: 1em 0.4em;
+  margin-top: 1rem;
+  span,
+  a {
+    font-size: 1.6em;
+    background: ${({ theme }) => theme.colors.primary};
+    transition: ${props => props.theme.transition.mainTransition};
+    margin: 0 0.4em;
+  }
+  span {
+    color: ${({ theme }) => theme.colors.white};
+    padding: 0.6em;
+    height: 3rem;
+    box-shadow: ${props => props.theme.shadow.lightShadow};
+    display: flex;
+    align-items: center;
+  }
+  a {
+    /* padding: 0.2em; */
+  }
+  @media (max-width: 448px) {
+    width: 100%;
+    flex-wrap: wrap;
+    span {
+      margin: 0.5em;
     }
   }
 `

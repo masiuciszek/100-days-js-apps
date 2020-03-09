@@ -6,6 +6,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { StyledNav, NavTitle } from './Styled.nav'
 import useToggle from '../../hooks/useToggle'
 import Menu from './Menu'
+import SocialMedia from './SocialMedia'
 
 interface P {
   site: {
@@ -43,6 +44,7 @@ const Navbar: React.FC<P> = () => {
         <h3>{data.site.siteMetadata.title}</h3>
         <p>{data.site.siteMetadata.description}</p>
       </NavTitle>
+      <SocialMedia />
       <div id="NavMenu">
         <span role="img" onClick={toggleMenu}>
           🎲
