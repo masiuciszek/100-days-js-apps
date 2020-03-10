@@ -5,6 +5,9 @@ import Article from './Article'
 
 interface INode {
   node: {
+    fields: {
+      slug: string
+    }
     id: string
     frontmatter: {
       title: string
@@ -30,12 +33,18 @@ const GET_ARTICLES = graphql`
       totalCount
       edges {
         node {
+          fields {
+            slug
+          }
           id
           frontmatter {
             title
             image
-            date
+            date(formatString: "d MMMM YY")
             keywords
+          }
+          fields {
+            slug
           }
           excerpt
         }

@@ -15,7 +15,7 @@ const theme: DefaultTheme = {
     danger: '#e14f3f',
     warning: '#FFDE20',
     dark: '#767679',
-    common: '#1B76FF',
+    common: 'rgb(7, 36, 100,.8)',
     white: '#fff',
     offWhite: '#f3f3f3',
     darkRGBA: 'rgba(0,0,0,0.4)'
