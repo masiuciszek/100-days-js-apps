@@ -17,12 +17,11 @@ interface P {
 }
 
 const Post: React.FC<P> = ({ data }) => {
-  console.log('POST COMPONENT TEMPLATE  ', data)
   const post = data.markdownRemark
   return (
     <Layout>
       <StyledPost>
-        <Title mainTitle={post.frontmatter.title} />
+        <Title mainTitle={post.frontmatter.title} bg="rgb(7, 36, 100,.8)" keywords={post.frontmatter.keywords} />
         <StyledContent dangerouslySetInnerHTML={{ __html: post.html }} />
       </StyledPost>
     </Layout>

@@ -6,5 +6,8 @@ keywords: ["React" ,"JS" ,"project"]
 ---
 
 
-# Hello and welcome to the Expence tracker project, built with react Typescript and Redux
+## Expence tracker project
 
+built with react Typescript and Redux
+
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi aut sunt quae rerum iusto unde cumque ea porro dolorem culpa animi nulla laboriosam quam, totam explicabo! Temporibus nemo voluptate odit.

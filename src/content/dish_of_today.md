@@ -6,4 +6,11 @@ keywords: ["vanilla" ,"JS" ,"project"]
 ---
 
 
-# Hello and welcome to the Dish of today , where I using the Meal DB API and React, Typescript and Redux as main tools
+
+
+where I using the Meal DB API and React, Typescript and Redux as main tools.
+
+**What was the main purpose of this application**?
+
+I think it was a great opportunity to use a another API endpoint to fetch some data and get through the process how the api work.
+Also working with API that you haven't build is a great experience that I recommend for everybody
