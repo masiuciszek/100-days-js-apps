@@ -8,13 +8,11 @@ interface Props {
 }
 
 const IndexPage: React.FC<Props> = ({ data }) => {
-  console.log(data)
-  console.log('data')
   return (
     <>
       <Layout>
         <h1>apa</h1>
-        <Hero>
+        <Hero home="true">
           <h1>hero title</h1>
         </Hero>
       </Layout>
