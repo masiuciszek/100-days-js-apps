@@ -61,7 +61,7 @@ const ArticleList: React.FC<P> = () => {
         <Article
           key={node.id}
           id={node.id}
-          to="/"
+          to={node.fields.slug}
           keywords={node.frontmatter.keywords}
           title={node.frontmatter.title}
           date={node.frontmatter.date}

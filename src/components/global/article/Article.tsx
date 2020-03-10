@@ -12,7 +12,7 @@ interface P {
 
 const Article: React.FC<P> = ({ id, title, keywords, to, date, desc }) => {
   return (
-    <StyledArticle>
+    <StyledArticle to={to}>
       <StyledHeader>
         <h3> {title} </h3>
       </StyledHeader>

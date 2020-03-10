@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 import { FlexStyle } from '../../../styles/Globalstyles'
 
-export const StyledArticle = styled.article`
+export const StyledArticle = styled(Link)`
   padding: 4rem 0.5rem;
   display: flex;
   box-shadow: ${({ theme }) => theme.shadow.lightShadow};
