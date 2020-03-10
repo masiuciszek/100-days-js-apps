@@ -1,5 +1,5 @@
 import * as React from 'react'
-// import BackgroundImage from 'gatsby-background-image';
+import BackgroundImage from 'gatsby-background-image'
 
 interface P {
   img: string
