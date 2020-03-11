@@ -2,6 +2,7 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import { SocialMediaWrapper } from './Styled.nav'
+// import { ReactComponent as Github } from '../../../images/github.svg'
 
 interface P {}
 
