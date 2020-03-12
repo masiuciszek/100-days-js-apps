@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: '100-js apps',
+    title: 'mox of modern JS apps',
     description: 'My showcase for JS-Apps',
     keywords: 'gatsbyjs, gatsby, javascript, Typescript, devdev',
     siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com',

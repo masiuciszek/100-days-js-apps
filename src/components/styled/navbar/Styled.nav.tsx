@@ -88,6 +88,7 @@ export const SocialMediaWrapper = styled.div`
   flex-direction: row;
   padding: 1em 0.4em;
   margin-top: 1rem;
+
   #myShowCase {
     a {
       color: ${({ theme }) => theme.colors.white};
@@ -123,5 +124,10 @@ export const SocialMediaWrapper = styled.div`
     span {
       margin: 0.5em;
     }
+  }
+  .social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `

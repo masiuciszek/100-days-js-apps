@@ -12,6 +12,9 @@ export const StyledErrorWrapper = styled.div`
     transform: rotate(0deg);
     background: ${props => props.theme.colors.white};
     color: ${props => props.theme.colors.common};
+    section{
+      color: ${props => props.theme.colors.primary};
+    }
   }
   a{
     background: ${props => props.theme.colors.primary};
@@ -31,5 +34,8 @@ export const StyledErrorWrapper = styled.div`
     width: 14em;
     box-shadow: ${props => props.theme.shadow.lightShadow};
   }
+  }
+  section {
+    color: ${props => props.theme.colors.white};
   }
 `

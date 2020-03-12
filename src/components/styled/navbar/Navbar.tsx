@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import { Menu3 } from '@styled-icons/remix-line/Menu3'
 import { StyledNav, NavTitle } from './Styled.nav'
 import useToggle from '../../hooks/useToggle'
 import Menu from './Menu'
@@ -47,7 +48,7 @@ const Navbar: React.FC<P> = () => {
       <SocialMedia />
       <div id="NavMenu">
         <span role="img" onClick={toggleMenu}>
-          🎲
+          <Menu3 size="35" color="#333" />
         </span>
       </div>
     </StyledNav>
