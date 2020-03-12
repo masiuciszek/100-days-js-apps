@@ -48,7 +48,7 @@ const Navbar: React.FC<P> = () => {
       <SocialMedia />
       <div id="NavMenu">
         <span role="img" onClick={toggleMenu}>
-          <Menu3 size="35" color="#333" />
+          <Menu3 size="35" />
         </span>
       </div>
     </StyledNav>

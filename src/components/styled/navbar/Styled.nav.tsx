@@ -14,6 +14,11 @@ export const StyledNav = styled.nav`
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 2;
+    span{
+      svg{
+        color: ${props => props.theme.colors.common};
+      }
+    }
   }
 `
 
@@ -57,7 +62,7 @@ export const StyledMenu = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100vh;
+  min-height: 140vh;
   background: rgba(0, 0, 0, 0.8);
   color: ${({ theme }) => theme.colors.white};
   ${FlexStyle};
