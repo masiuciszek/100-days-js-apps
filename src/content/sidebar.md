@@ -10,3 +10,5 @@ keywords: ["Vanilla" ,"JS" ,"CSS"]
 <a href="https://codepen.io/legionista1994/full/gOOwZxY" target="_blank">
   Javascript Sidebar
 </a>
+
+A Simple pretty sidebar that you can customize in so many different ways

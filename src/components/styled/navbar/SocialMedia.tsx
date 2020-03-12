@@ -36,7 +36,7 @@ const SocialMedia: React.FC<P> = () => {
     <SocialMediaWrapper>
       {' '}
       <span id="myShowCase">
-        <Link to="/">Modern 100 Js Apps</Link>
+        <Link to="/">Modern Js Apps</Link>
       </span>
       {state.map(s => (
         <span key={s.id} className="social">
