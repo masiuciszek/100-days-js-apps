@@ -6,8 +6,12 @@ keywords: ["React" ,"JS" ,"project"]
 ---
 
 
-## Expence tracker project
+
+<a href="https://app.netlify.com/sites/marcell-expense-tracker/overview" target="_blank">
+  Expense tracker
+</a>
+
 
 built with react Typescript and Redux
 
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi aut sunt quae rerum iusto unde cumque ea porro dolorem culpa animi nulla laboriosam quam, totam explicabo! Temporibus nemo voluptate odit.
+
