@@ -1,5 +1,5 @@
 ---
-title: 'E -store application'
+title: 'e-store application'
 date: '2020-06-28'
 image: 'something.jpg'
 keywords: ['React', 'TS', 'Graphql']
