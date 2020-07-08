@@ -1,12 +1,12 @@
 ---
-title: "Jonkri"
-date: "2020-06-22"
-image: "something.jpg"
-keywords: ["React" , "Graphql", "Gatsby"]
+title: 'Bobby blog'
+date: '2020-06-22'
+image: 'something.jpg'
+keywords: ['React', 'Graphql', 'Gatsby']
 ---
 
 <a href="https://app.netlify.com/sites/marcell-jonkri-blog/overview" target="_blank">
-  Jonkri Blog
+  Bobbi Blog
 </a>
 
-A blog I built for my teacher has a hobby project
+A blog I built for my teacher has a hobby project, just for fun

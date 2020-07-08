@@ -36,6 +36,9 @@ export const StyledTitle = styled.section<IStyledTitle>`
       padding: .2rem;
       letter-spacing: .1rem;
       text-transform: capitalize;
+      a{
+        color: ${props => props.theme.colors.white};
+      }
     }
   }
 `

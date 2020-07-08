@@ -11,6 +11,11 @@ const Main = styled.main`
   flex-grow: 1 auto;
 `
 
+export const Page = styled.div`
+  max-width: 900px;
+  margin: 2rem auto;
+`
+
 const Layout: React.FC<P> = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>

@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from 'gatsby'
 import { StyledTitle } from './Styled.title'
 
 interface P {
@@ -16,8 +17,10 @@ const Title: React.FC<P> = ({ mainTitle, subTitle, sizeH3, sizeH5, bg, keywords 
       <h3> {mainTitle} </h3>
       <h5>{subTitle}</h5>
       <ul className="keywords">
-        {keywords?.map(x => (
-          <li>{x+' |'}</li>
+        {keywords?.map((x, i) => (
+          <li key={x}>
+            <Link to="/">{i === keywords.length - 1 ? '' : `${x} | `}</Link>
+          </li>
         ))}
       </ul>
     </StyledTitle>

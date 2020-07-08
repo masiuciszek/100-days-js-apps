@@ -5,6 +5,13 @@ export const StyledPost = styled(AppWrapper)``
 
 export const StyledContent = styled.section`
   padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+  width: 100%;
   h1 {
     font-size: 2.5rem;
   }
@@ -20,6 +27,7 @@ export const StyledContent = styled.section`
 
   p {
     font-size: 18px;
+    margin: 2rem 0;
   }
 
   a {
@@ -30,7 +38,7 @@ export const StyledContent = styled.section`
     transition: ${props => props.theme.transition.secondaryTransition};
     display: block;
     width: 70%;
-    /* margin: 0 auto; */
+    margin: 1rem auto;
     border-radius: 0.6rem;
     text-align: center;
     font-size: 2rem;
