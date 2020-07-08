@@ -9,7 +9,7 @@ import useToggle from '../../hooks/useToggle'
 import Menu from './Menu'
 import SocialMedia from './SocialMedia'
 
-interface P {
+interface Query {
   site: {
     siteMetadata: {
       title: string
@@ -35,8 +35,8 @@ const query = graphql`
   }
 `
 
-const Navbar: React.FC<P> = () => {
-  const data = useStaticQuery<P>(query)
+const Navbar: React.FC = () => {
+  const data = useStaticQuery<Query>(query)
   const [showMenu, toggleMenu] = useToggle(false)
   return (
     <StyledNav>

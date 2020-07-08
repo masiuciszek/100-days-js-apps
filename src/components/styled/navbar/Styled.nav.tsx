@@ -72,6 +72,9 @@ export const StyledMenu = styled.div`
 `
 
 export const StyledNavList = styled.ul`
+  height: 100%;
+  margin-bottom: 12rem;
+  padding: 1rem 2rem;
   li {
     padding: 1.5rem 0.2rem;
   }

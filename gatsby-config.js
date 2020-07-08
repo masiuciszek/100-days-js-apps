@@ -8,7 +8,21 @@ module.exports = {
       name: 'Marcell Ciszek',
       url: 'https://marcellable.com',
       email: 'ciszekmarcell@gmail.com'
-    }
+    },
+    paths: [
+      {
+        name: 'home',
+        path: '/'
+      },
+      {
+        name: 'projects',
+        path: '/projects'
+      },
+      {
+        name: 'contact',
+        path: '/contact'
+      }
+    ]
   },
   plugins: [
     {

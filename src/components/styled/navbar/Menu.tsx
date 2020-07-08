@@ -1,44 +1,43 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql, useStaticQuery } from 'gatsby'
 import { StyledMenu, StyledNavList } from './Styled.nav'
 
-interface P {}
-
-interface NavList {
-  id: number
-  text: string
-  to: string
+interface Path {
+  name: string
+  path: string
+}
+interface Query {
+  site: {
+    siteMetadata: {
+      paths: Path[]
+    }
+  }
 }
 
-const Menu: React.FC<P> = () => {
-  const [navList, setnavList] = React.useState<NavList[]>([
-    {
-      id: 1,
-      text: 'home',
-      to: '/'
-    },
-    {
-      id: 2,
-      text: 'projects',
-      to: '/projects'
-    },
-    {
-      id: 3,
-      text: 'about',
-      to: '/about'
-    },
-    {
-      id: 4,
-      text: 'contact',
-      to: '/contact'
+const MenuQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        paths {
+          name
+          path
+        }
+      }
     }
-  ])
+  }
+`
+
+const Menu: React.FC = () => {
+  const {
+    site: { siteMetadata }
+  } = useStaticQuery<Query>(MenuQuery)
+
   return (
     <StyledMenu>
       <StyledNavList>
-        {navList.map(x => (
-          <li key={x.text}>
-            <Link to={x.to}> {x.text} </Link>
+        {siteMetadata.paths.map(x => (
+          <li key={x.name}>
+            <Link to={x.path}> {x.name} </Link>
           </li>
         ))}
       </StyledNavList>
