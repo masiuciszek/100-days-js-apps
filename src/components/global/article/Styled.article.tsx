@@ -5,7 +5,7 @@ import { FlexStyle } from '../../../styles/Globalstyles'
 export const StyledArticle = styled(Link)`
   padding: 4rem 0.5rem;
   display: flex;
-  box-shadow: ${({ theme }) => theme.shadow.lightShadow};
+  /* box-shadow: ${({ theme }) => theme.shadow.lightShadow}; */
   margin: 1rem 0;
   align-items: center;
   justify-content: space-between;

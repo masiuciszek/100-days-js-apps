@@ -4,6 +4,7 @@ import { AppWrapper } from '../components/styled/Wrapper'
 export const StyledPost = styled(AppWrapper)``
 
 export const StyledContent = styled.section`
+  padding: 1rem;
   h1 {
     font-size: 2.5rem;
   }
