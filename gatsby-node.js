@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
 /* eslint-disable no-unused-expressions */
 const { createFilePath } = require('gatsby-source-filesystem')
@@ -11,76 +12,92 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: 'slug',
-      value: slug
+      value: slug,
     })
   }
 }
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
-  //
+exports.createPages = async ({ graphql, actions: { createPage } }) => {
+  const results = await graphql(
+    `
+      {
+        allMarkdownRemark {
+          edges {
+            node {
+              id
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+              }
+            }
+          }
+        }
+      }
+    `,
+  )
+
+  const projects = results.data.allMarkdownRemark.edges
+
+  projects.forEach(({ node }, index) => {
+    const {
+      id,
+      fields: { slug },
+      frontmatter: { title },
+    } = node
+
+    createPage({
+      path: `/projects${slug}`,
+      component: path.resolve('src/templates/post.tsx'),
+      context: {
+        id,
+        slug,
+        title,
+        prev: index === 0 ? null : projects[index - 1].node,
+        next: index === projects.length - 1 ? null : projects[index + 1].node,
+      },
+    })
+  })
 }
 
-// exports.createPages = async ({ graphql, actions }) => {
-//   const { createPage } = actions
+// const path = require('path');
 
-//   const blogPostList = path.resolve(`./src/global/article/ArticleList.tsx`)
-//   const blogPost = path.resolve(`./src/templates/post.tsx`)
-//   const result = await graphql(
+// exports.createPages = async ({ graphql, actions: { createPage } }) => {
+//   const results = await graphql(
 //     `
 //       {
-//         allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
+//         allShopifyProduct {
 //           edges {
 //             node {
-//               fields {
-//                 slug
-//               }
-//               frontmatter {
-//                 title
-//                 keywords
-//               }
+//               id
+//               handle
+//               productType
 //             }
 //           }
 //         }
 //       }
 //     `
-//   )
-//   if (result.errors) {
-//     throw result.errors
-//   }
-//   const posts = result.data.allMarkdownRemark.edges
-//   posts.forEach((post, index) => {
-//     const previous = index === posts.length - 1 ? null : posts[index + 1].node
-//     const next = index === 0 ? null : posts[index - 1].node
+//   );
 
+//   results.data.allShopifyProduct.edges.forEach(({ node }) => {
+//     const { id, handle, productType } = node;
 //     createPage({
-//       path: post.node.fields.slug,
-//       component: path.resolve('./src/templates/post.tsx'),
+//       path: `/products/${handle}`,
+//       component: path.resolve('src/templates/single-product-template.tsx'),
 //       context: {
-//         slug: post.node.fields.slug,
-//         previous,
-//         next
-//       }
-//     })
-//     const postPerPage = 3
-//     const numberOfPages = Math.ceil(posts.length / postPerPage)
-
-//     Array.from({ length: numberOfPages }).forEach((_, index) => {
-//       // if index 0 then first page
-//       const isFirstPage = index === 0
-//       const currentPage = index + 1
-//       if (isFirstPage) return
-//       createPage({
-//         // path: `/blog/${currentPage}`,
-//         path: index === 0 ? `/blog` : `/blog/${index + 1}`,
-//         component: blogPostList,
-//         context: {
-//           limit: postPerPage,
-//           skip: index * postPerPage,
-//           currentPage,
-//           numberOfPages
-//         }
-//       })
-//     })
-//   })
-// }
+//         id,
+//         handle,
+//       },
+//     });
+//     createPage({
+//       path: `products/category/${productType}`,
+//       component: path.resolve('src/templates/category-template.tsx'),
+//       context: {
+//         id,
+//         productType,
+//         handle,
+//       },
+//     });
+//   });
+// };

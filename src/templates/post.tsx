@@ -1,44 +1,23 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, PageProps } from 'gatsby'
 import Title from '../components/styled/title/Title'
 import Layout from '../components/layout'
 import { StyledPost, StyledContent } from '../styles/PostStyles'
 
-interface P {
-  data: {
-    markdownRemark: {
-      frontmatter: {
-        title: string
-        keywords: string[]
-      }
-      html: string
-    }
-  }
-}
+interface Query {}
 
-const Post: React.FC<P> = ({ data }) => {
-  const post = data.markdownRemark
+const Post: React.FC<PageProps<Query>> = () => {
   return (
     <Layout>
       <StyledPost>
-        <Title mainTitle={post.frontmatter.title} bg="rgb(7, 36, 100,.8)" keywords={post.frontmatter.keywords} />
-        <StyledContent dangerouslySetInnerHTML={{ __html: post.html }} />
+        <h1>Hello</h1>
+        {/* <Title mainTitle={post.frontmatter.title} bg="rgb(7, 36, 100,.8)" keywords={post.frontmatter.keywords} /> */}
+        {/* <StyledContent dangerouslySetInnerHTML={{ __html: post.html }} /> */}
       </StyledPost>
     </Layout>
   )
 }
 // <StyledContent dangerouslySetInnerHTML={{__html:post.}}>
 //         </StyledContent>
-export const POST_QUERY = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-        keywords
-      }
-    }
-  }
-`
 
 export default Post
