@@ -74,6 +74,7 @@ const Wrapper = styled(Page)`
     justify-content: space-between;
     align-items: center;
     padding: 2rem 1rem;
+    width: 100%;
     a {
       font-size: 1.4rem;
       transition: ${props => props.theme.transition.mainTransition};

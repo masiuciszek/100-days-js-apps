@@ -53,5 +53,6 @@ export const StyledContent = styled.section`
     font-weight: 800;
     color: ${props => props.theme.colors.common};
     text-decoration: underline 2px solid ${props => props.theme.colors.common};
+    font-size: 1.5rem;
   }
 `
