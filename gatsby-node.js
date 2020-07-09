@@ -17,11 +17,15 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-exports.createPages = async ({ graphql, reporter, actions: { createPage } }) => {
+exports.createPages = async ({
+  graphql,
+  reporter,
+  actions: { createPage },
+}) => {
   const results = await graphql(
     `
       {
-        allMarkdownRemark {
+        allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
           edges {
             node {
               id

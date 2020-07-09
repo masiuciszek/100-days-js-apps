@@ -3,13 +3,16 @@ import * as React from 'react'
 import { graphql, PageProps, Link } from 'gatsby'
 import styled from 'styled-components'
 import Layout, { Page } from '../components/layout'
+import Project from '../components/project/Project'
 
 interface Node {
-  id: string
-  frontmatter: {
-    title: string
-    keywords: string[]
-    date: string
+  node: {
+    id: string
+    frontmatter: {
+      title: string
+      keywords: string[]
+      date: string
+    }
   }
 }
 interface Data {
@@ -34,42 +37,24 @@ const Projects: React.FC<PageProps<Data, PageContext>> = ({
   const prevPage = currentPage - 1 === 1 ? '' : (currentPage - 1).toString()
   const nextPage = (currentPage + 1).toString()
 
-  console.log(
-    'isFirst ',
-    isFirst,
-    ' isLast ',
-    isLast,
-    ' prevPage ',
-    prevPage,
-    ' nextpage ',
-    nextPage,
-    ' current page ',
-    currentPage,
-    ' numpages ',
-    numPages,
-  )
+  const { allMarkdownRemark } = data
   return (
     <Layout>
       <Page>
-        <h1>apa</h1>
+        {allMarkdownRemark.edges.map(({ node }) => (
+          <Project key={node.id} data={node} />
+        ))}
 
         <Pagination>
           {!isFirst && (
-            <Link to={`/projects/${prevPage}`} rel="prev">
+            <Link id="prev" to={`/projects/${prevPage}`} rel="prev">
               ⬅ prev
             </Link>
           )}
           {Array.from({ length: numPages }, (_, i) => (
             <li key={i + Math.random() * 100}>
               <Link
-                style={{
-                  color: currentPage === i + 1 ? '#fff' : '#333',
-                  background: currentPage === i + 1 ? '#333' : '#fff',
-                  border:
-                    currentPage === i + 1
-                      ? '2px solid  #fff'
-                      : ' 2px solid #333',
-                }}
+                className={currentPage === i + 1 ? 'current' : ''}
                 to={`/projects/${i === 0 ? '' : i + 1}`}
               >
                 {i + 1}
@@ -77,7 +62,7 @@ const Projects: React.FC<PageProps<Data, PageContext>> = ({
             </li>
           ))}
           {!isLast && (
-            <Link to={`/projects/${nextPage}`} rel="prev">
+            <Link to={`/projects/${nextPage}`} rel="prev" id="next">
               next ➡
             </Link>
           )}
@@ -89,11 +74,35 @@ const Projects: React.FC<PageProps<Data, PageContext>> = ({
 
 const Pagination = styled.ul`
   display: flex;
-  border: 3px solid red;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 2rem 0;
+  #prev,
+  #next {
+    border-radius: 0;
+    width: 8rem;
+  }
   a {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    transition: ${props => props.theme.transition.mainTransition};
     color: #333;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    display: block;
+    height: 3rem;
+    width: 3rem;
+    text-align: center;
+    &:hover {
+      color: ${props => props.theme.colors.white};
+      background: ${props => props.theme.colors.primary};
+      box-shadow: ${props => props.theme.shadow.lightShadow};
+    }
+  }
+  .current {
+    color: ${props => props.theme.colors.white};
+    background: ${props => props.theme.colors.primary};
+    box-shadow: ${props => props.theme.shadow.lightShadow};
   }
 `
 
