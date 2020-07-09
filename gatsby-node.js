@@ -17,7 +17,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-exports.createPages = async ({ graphql, actions: { createPage } }) => {
+exports.createPages = async ({ graphql, reporter, actions: { createPage } }) => {
   const results = await graphql(
     `
       {
@@ -37,8 +37,27 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       }
     `,
   )
+  if (results.error) {
+    reporter.panicOnBuild(`Error while running Graphql query`)
+    return
+  }
 
   const projects = results.data.allMarkdownRemark.edges
+
+  const projectPerPage = 4
+  const numPages = Math.ceil(projects.length / projectPerPage)
+  Array.from({ length: numPages }).forEach((_, index) => {
+    createPage({
+      path: index === 0 ? `/projects` : `/projects/${index + 1}`,
+      component: path.resolve('src/templates/projects.tsx'),
+      context: {
+        limit: projectPerPage,
+        skip: index * projectPerPage,
+        numPages,
+        currentPage: index + 1,
+      },
+    })
+  })
 
   projects.forEach(({ node }, index) => {
     const {
@@ -49,7 +68,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 
     createPage({
       path: `/projects${slug}`,
-      component: path.resolve('src/templates/post.tsx'),
+      component: path.resolve('src/templates/project.tsx'),
       context: {
         id,
         slug,

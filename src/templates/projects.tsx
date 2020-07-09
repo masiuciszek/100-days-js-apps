@@ -1,13 +1,14 @@
 import * as React from 'react'
+import Layout from '../components/layout'
 
 interface Props {}
 
 const Projects: React.FC<Props> = () => {
   return (
-    <div>
+    <Layout>
       {' '}
       <h1> Legia CWSKS </h1>{' '}
-    </div>
+    </Layout>
   )
 }
 export default Projects

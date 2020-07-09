@@ -30,7 +30,7 @@ export const StyledContent = styled.section`
     margin: 2rem 0;
   }
 
-  a {
+  #banner-link {
     color: ${props => props.theme.colors.white};
     background: ${props => props.theme.colors.primary};
     padding: 0.5rem 1rem;
@@ -42,10 +42,16 @@ export const StyledContent = styled.section`
     border-radius: 0.6rem;
     text-align: center;
     font-size: 2rem;
+    text-decoration: 0;
     &:hover {
       box-shadow: ${props => props.theme.shadow.darkShadow};
       color: ${props => props.theme.colors.common};
       background: ${props => props.theme.colors.white};
     }
+  }
+  a {
+    font-weight: 800;
+    color: ${props => props.theme.colors.common};
+    text-decoration: underline 2px solid ${props => props.theme.colors.common};
   }
 `

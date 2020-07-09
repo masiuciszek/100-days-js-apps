@@ -55,8 +55,9 @@ const Post: React.FC<PageProps<Query, PageContext>> = ({ data, pageContext }) =>
 const Wrapper = styled(Page)`
   .navigation {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding: 2rem 1rem;
     a {
       font-size: 1.4rem;
       transition: ${props => props.theme.transition.mainTransition};
