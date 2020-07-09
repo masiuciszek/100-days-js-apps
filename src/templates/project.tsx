@@ -36,8 +36,6 @@ const Post: React.FC<PageProps<Query, PageContext>> = ({
 }) => {
   const { frontmatter, html, excerpt } = data.markdownRemark
   const { pathSlug, next, prev } = pageContext
-  console.log(next?.frontmatter.path)
-  console.log(prev?.frontmatter.path)
 
   return (
     <Layout>

@@ -17,6 +17,38 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
+/**
+ *
+ * @param {Function} createPage
+ * @param {Array} projects
+ */
+const createTagPages = (createPage, projects) => {
+  const allTags = path.resolve('src/templates/tags-list.tsx')
+  const singleTag = path.resolve('src/templates/tag.tsx')
+  // store keys of keywords as key and the node as value
+  const projectByTag = {}
+  projects.forEach(({ node }) => {
+    if (node.frontmatter.keywords) {
+      node.frontmatter.keywords.forEach(keyword => {
+        if (!projectByTag[keyword]) {
+          projectByTag[keyword] = []
+        }
+        projectByTag[keyword].push(node)
+      })
+    }
+  })
+
+  const keyWords = Object.keys(projectByTag)
+
+  createPage({
+    path: '/tags',
+    component: allTags,
+    context: {
+      keywords: keyWords.sort(),
+    },
+  })
+}
+
 exports.createPages = async ({
   graphql,
   reporter,
@@ -34,6 +66,7 @@ exports.createPages = async ({
               frontmatter {
                 title
                 path
+                keywords
               }
             }
           }
@@ -47,6 +80,8 @@ exports.createPages = async ({
   }
 
   const projects = results.data.allMarkdownRemark.edges
+
+  createTagPages(createPage, projects)
 
   const projectPerPage = 4
   const numPages = Math.ceil(projects.length / projectPerPage)
