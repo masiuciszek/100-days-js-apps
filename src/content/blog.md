@@ -1,5 +1,6 @@
 ---
 title: 'Bobby blog'
+path: '/bobby_blog'
 date: '2020-06-22'
 image: 'something.jpg'
 keywords: ['React', 'Graphql', 'Gatsby']

@@ -1,5 +1,6 @@
 ---
 title: 'Worlds best'
+path: '/worlds-best'
 date: '2019-06-20'
 image: 'something.jpg'
 keywords: ['React', 'Gatsby', 'Graphql']

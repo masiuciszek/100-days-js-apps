@@ -1,10 +1,10 @@
 ---
-title: "KeyCode app"
-date: "2019-07-12"
-image: "something.jpg"
-keywords: ["Vanilla" ,"JS","DOM"]
+title: 'KeyCode app'
+path: '/keycode_app'
+date: '2019-07-12'
+image: 'something.jpg'
+keywords: ['Vanilla', 'JS', 'DOM']
 ---
-
 
 <a href="https://codepen.io/legionista1994/full/JjdpOrj" target="_blank">
   Javascript Key Press events

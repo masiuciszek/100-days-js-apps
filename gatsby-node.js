@@ -22,6 +22,7 @@ exports.createPages = async ({
   reporter,
   actions: { createPage },
 }) => {
+  const projectTemplate = path.resolve('src/templates/project.tsx')
   const results = await graphql(
     `
       {
@@ -29,11 +30,10 @@ exports.createPages = async ({
           edges {
             node {
               id
-              fields {
-                slug
-              }
+
               frontmatter {
                 title
+                path
               }
             }
           }
@@ -66,16 +66,14 @@ exports.createPages = async ({
   projects.forEach(({ node }, index) => {
     const {
       id,
-      fields: { slug },
-      frontmatter: { title },
+      frontmatter: { title, path },
     } = node
-
     createPage({
-      path: `/projects${slug}`,
-      component: path.resolve('src/templates/project.tsx'),
+      path: `/projects${path}`,
+      component: projectTemplate,
       context: {
         id,
-        slug,
+        pathSlug: path,
         title,
         prev: index === 0 ? null : projects[index - 1].node,
         next: index === projects.length - 1 ? null : projects[index + 1].node,

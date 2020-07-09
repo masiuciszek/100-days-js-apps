@@ -10,6 +10,7 @@ interface Node {
     id: string
     frontmatter: {
       title: string
+      path: string
       keywords: string[]
       date: string
     }
@@ -38,6 +39,7 @@ const Projects: React.FC<PageProps<Data, PageContext>> = ({
   const nextPage = (currentPage + 1).toString()
 
   const { allMarkdownRemark } = data
+
   return (
     <Layout>
       <Page>
@@ -119,6 +121,7 @@ export const PROJECTS_QUERY = graphql`
           frontmatter {
             title
             keywords
+            path
             date(formatString: "MMMM Do, YYYY")
           }
         }

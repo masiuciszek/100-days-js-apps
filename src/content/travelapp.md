@@ -1,5 +1,6 @@
 ---
 title: 'Another travel app'
+path: '/another-travel-app'
 date: '2020-06-15'
 image: 'something.jpg'
 keywords: ['React', 'TS', 'Graphql']

@@ -1,12 +1,10 @@
 ---
-title: "dish of today"
-date: "2020-01-04"
-image: "something.jpg"
-keywords: ["vanilla" ,"JS" ,"project"]
+title: 'dish of today'
+path: '/dish_of_today'
+date: '2020-01-04'
+image: 'something.jpg'
+keywords: ['vanilla', 'JS', 'project']
 ---
-
-
-
 
 where I using the Meal DB API and React, Typescript and Redux as main tools.
 

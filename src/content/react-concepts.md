@@ -1,5 +1,6 @@
 ---
 title: 'react hooks'
+path: '/react-hooks'
 date: '2020-04-30'
 image: 'something.jpg'
 keywords: ['React', 'TS', 'hooks']

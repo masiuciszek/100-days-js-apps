@@ -10,6 +10,7 @@ interface Query {
     id: string
     frontmatter: {
       title: string
+      path: string
       keywords: string[]
       date: string
     }
@@ -18,10 +19,7 @@ interface Query {
   }
 }
 interface Node {
-  fields: {
-    slug: string
-  }
-  frontmatter: { title: string }
+  frontmatter: { title: string; path: string }
   id: string
 }
 interface PageContext {
@@ -29,22 +27,40 @@ interface PageContext {
   next: Node | null
   prev: Node | null
   title: string
-  slug: string
+  pathSlug: string
 }
 
-const Post: React.FC<PageProps<Query, PageContext>> = ({ data, pageContext }) => {
+const Post: React.FC<PageProps<Query, PageContext>> = ({
+  data,
+  pageContext,
+}) => {
   const { frontmatter, html, excerpt } = data.markdownRemark
-  const { slug, next, prev } = pageContext
+  const { pathSlug, next, prev } = pageContext
+  console.log(next?.frontmatter.path)
+  console.log(prev?.frontmatter.path)
 
   return (
     <Layout>
       <StyledPost>
         <Wrapper>
-          <Title mainTitle={frontmatter.title} bg="rgb(7, 36, 100,.8)" keywords={frontmatter.keywords} />
+          <Title
+            mainTitle={frontmatter.title}
+            bg="rgb(7, 36, 100,.8)"
+            keywords={frontmatter.keywords}
+          />
           <StyledContent dangerouslySetInnerHTML={{ __html: html }} />
           <div className="navigation">
-            {prev && <Link to={`/projects${prev.fields.slug}`}>⬅ {prev?.frontmatter.title}</Link>}
-            {next && <Link to={`/projects${next.fields.slug}`}> {next?.frontmatter.title} ➡</Link>}
+            {prev && (
+              <Link to={`/projects${prev?.frontmatter.path}`}>
+                ⬅ {prev?.frontmatter.title}
+              </Link>
+            )}
+            {next && (
+              <Link to={`/projects${next?.frontmatter.path}`}>
+                {' '}
+                {next?.frontmatter.title} ➡
+              </Link>
+            )}
           </div>
         </Wrapper>
       </StyledPost>
@@ -86,11 +102,12 @@ const Wrapper = styled(Page)`
 `
 
 export const PAGE_QUERY = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query($pathSlug: String!) {
+    markdownRemark(frontmatter: { path: { eq: $pathSlug } }) {
       id
       frontmatter {
         title
+        path
         keywords
         date(formatString: "MMMM Do, YYYY")
       }

@@ -1,5 +1,6 @@
 ---
 title: 'Voting progress'
+path: '/voting-progress'
 date: '2020-04-20'
 image: 'something.jpg'
 keywords: ['JS', 'Vanilla', 'CSS']

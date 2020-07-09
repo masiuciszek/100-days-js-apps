@@ -1,5 +1,6 @@
 ---
 title: 'e-store application'
+path: '/e_store_application'
 date: '2020-06-28'
 image: 'something.jpg'
 keywords: ['React', 'TS', 'Graphql']

@@ -6,6 +6,7 @@ interface Props {
     id: string
     frontmatter: {
       title: string
+      path: string
       keywords: string[]
       date: string
     }
@@ -15,7 +16,9 @@ interface Props {
 const Project: React.FC<Props> = ({ data }) => {
   return (
     <ProjectStyles>
-      <ProjectLink to="/">{data.frontmatter.title}</ProjectLink>
+      <ProjectLink to={`/projects${data.frontmatter.path}`}>
+        {data.frontmatter.title}
+      </ProjectLink>
     </ProjectStyles>
   )
 }
