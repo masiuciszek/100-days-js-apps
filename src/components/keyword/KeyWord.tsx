@@ -1,15 +1,11 @@
 import * as React from 'react'
+import { StyledKeyword } from './KeywordStyles'
 
 interface Props {
   keyword: string
 }
 
 const KeyWord: React.FC<Props> = ({ keyword }) => {
-  return (
-    <div>
-      {' '}
-      <h1> {keyword} </h1>{' '}
-    </div>
-  )
+  return <StyledKeyword to={`/tags/${keyword}`}>{keyword}</StyledKeyword>
 }
 export default KeyWord
