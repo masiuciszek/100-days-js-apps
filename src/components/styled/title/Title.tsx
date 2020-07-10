@@ -29,7 +29,9 @@ const Title: React.FC<P> = ({
         <ul className="keywords">
           {keywords?.map((x, i) => (
             <li key={x}>
-              <Link to="/">{i === keywords.length - 1 ? '' : `${x} | `}</Link>
+              <Link to={`/tags/${x}`}>
+                {i === keywords.length - 1 ? '' : `${x} | `}
+              </Link>
             </li>
           ))}
         </ul>

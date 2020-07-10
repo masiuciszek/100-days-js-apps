@@ -3,6 +3,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import theme from '../../styles/theme'
 import Navbar from '../styled/navbar/Navbar'
 import Globalstyles from '../../styles/Globalstyles'
+import Footer from '../styled/footer'
 
 interface P {
   children: React.ReactNode
@@ -22,6 +23,7 @@ const Layout: React.FC<P> = ({ children }) => {
       <Globalstyles />
       <Navbar />
       <Main className="MainApp">{children}</Main>
+      <Footer />
     </ThemeProvider>
   )
 }

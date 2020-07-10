@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { SocialMediaStyles } from './ContactStyles'
+import { handleIcons } from '../../utils'
 
 type SocialType =
   | 'github'
@@ -17,28 +18,11 @@ interface Props {
 }
 
 const SocialList: React.FC<Props> = ({ onSocial }) => {
-  const handleIcons = (socialPlatform: SocialType) => {
-    switch (socialPlatform) {
-      case 'github':
-        return '🐼 Github'
-      case 'instagram':
-        return '📷 Instagram'
-      case 'twitter':
-        return '🐦 Twitter'
-      case 'marcellable':
-        return 'λ Blog'
-      case 'masiuciszek':
-        return '🐙 Porfolio'
-      default:
-        throw new Error('No matching type')
-    }
-  }
   return (
     <SocialMediaStyles>
       {onSocial.map(x => (
         <li key={x.name}>
           <a href={x.url} target="_blank" rel="noreferrer">
-            {' '}
             {handleIcons(x.name)}{' '}
           </a>
         </li>
