@@ -17,7 +17,8 @@ const Project: React.FC<Props> = ({ data }) => {
   return (
     <ProjectStyles>
       <ProjectLink to={`/projects${data.frontmatter.path}`}>
-        {data.frontmatter.title}
+        <span>{data.frontmatter.title}</span>
+        <span>{data.frontmatter.date}</span>
       </ProjectLink>
     </ProjectStyles>
   )

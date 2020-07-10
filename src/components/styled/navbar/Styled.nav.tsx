@@ -22,7 +22,7 @@ export const StyledNav = styled.nav`
   }
 `
 
-export const NavTitle = styled.nav`
+export const NavTitle = styled.div`
   padding: 0.5rem;
   color: ${({ theme }) => theme.colors.primary};
   background: ${({ theme }) => theme.colors.white};
@@ -53,7 +53,9 @@ export const NavTitle = styled.nav`
   }
   &:hover {
     transform: rotate(0deg);
-    color: ${({ theme }) => theme.colors.common};
+    a {
+      color: ${({ theme }) => theme.colors.common};
+    }
   }
 `
 

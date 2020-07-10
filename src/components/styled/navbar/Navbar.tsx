@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/accessible-emoji */
 import * as React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import { Menu3 } from '@styled-icons/remix-line/Menu3'
 import { StyledNav, NavTitle } from './Styled.nav'
 import useToggle from '../../hooks/useToggle'
@@ -42,8 +42,10 @@ const Navbar: React.FC = () => {
     <StyledNav>
       {showMenu && <Menu />}
       <NavTitle>
-        <h3>{data.site.siteMetadata.title}</h3>
-        <p>{data.site.siteMetadata.description}</p>
+        <Link to="/">
+          <h3>{data.site.siteMetadata.title}</h3>
+          <p>{data.site.siteMetadata.description}</p>
+        </Link>
       </NavTitle>
       <SocialMedia />
       <div id="NavMenu">
