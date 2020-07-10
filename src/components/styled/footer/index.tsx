@@ -26,7 +26,7 @@ type SocialType =
   | 'masiuciszek'
 interface Social<T> {
   name: T
-  url: T
+  url: string
 }
 
 interface Query {
@@ -42,10 +42,14 @@ const Footer: React.FC = (): ReactElement => {
   const {
     site: { siteMetadata },
   } = useStaticQuery<Query>(FOOTER_QUERY)
+  const d = new Date()
+  const yy = d.getFullYear()
   return (
     <FooterStyles>
       <FooterTitle>
-        <h1>Footer</h1>
+        <h3>
+          {siteMetadata.title} {yy} ©
+        </h3>
       </FooterTitle>
       <FooterSocial>
         {siteMetadata.social.map(({ name, url }) => (

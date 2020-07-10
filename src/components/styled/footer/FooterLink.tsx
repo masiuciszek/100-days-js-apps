@@ -1,8 +1,14 @@
 import * as React from 'react'
 import { handleIcons } from '../../../utils'
 
+type SocialType =
+  | 'github'
+  | 'twitter'
+  | 'instagram'
+  | 'marcellable'
+  | 'masiuciszek'
 interface Props {
-  name: string
+  name: SocialType
   url: string
 }
 

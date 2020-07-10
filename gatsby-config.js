@@ -44,6 +44,10 @@ module.exports = {
         path: '/projects',
       },
       {
+        name: 'tags',
+        path: '/tags',
+      },
+      {
         name: 'contact',
         path: '/contact',
       },

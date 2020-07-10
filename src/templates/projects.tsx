@@ -106,6 +106,9 @@ const Pagination = styled.ul`
     background: ${props => props.theme.colors.primary};
     box-shadow: ${props => props.theme.shadow.lightShadow};
   }
+  @media (max-width: 910px) {
+    flex-wrap: wrap;
+  }
 `
 
 export const PROJECTS_QUERY = graphql`
