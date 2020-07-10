@@ -1,33 +1,48 @@
 import * as React from 'react'
+
 import { SocialMediaStyles } from './ContactStyles'
 
+type SocialType =
+  | 'github'
+  | 'twitter'
+  | 'instagram'
+  | 'marcellable'
+  | 'masiuciszek'
 interface Social<T> {
   name: T
   url: T
 }
 interface Props {
-  onSocial: Social<string>[]
+  onSocial: Social<SocialType>[]
 }
-type SocialType = 'github' | 'twitter' | 'instagram'
 
 const SocialList: React.FC<Props> = ({ onSocial }) => {
   const handleIcons = (socialPlatform: SocialType) => {
     switch (socialPlatform) {
       case 'github':
-        return 'https://github/masiuciszek.com'
+        return '🐼 Github'
       case 'instagram':
-        return 'https://instagram/masiuciszek.com'
+        return '📷 Instagram'
       case 'twitter':
-        return 'https://twitter/CiszekMarcell.com'
-
+        return '🐦 Twitter'
+      case 'marcellable':
+        return 'λ Blog'
+      case 'masiuciszek':
+        return '🐙 Porfolio'
       default:
         throw new Error('No matching type')
     }
   }
   return (
     <SocialMediaStyles>
-      {' '}
-      <h1> Legia CWSKS </h1>{' '}
+      {onSocial.map(x => (
+        <li key={x.name}>
+          <a href={x.url} target="_blank" rel="noreferrer">
+            {' '}
+            {handleIcons(x.name)}{' '}
+          </a>
+        </li>
+      ))}
     </SocialMediaStyles>
   )
 }

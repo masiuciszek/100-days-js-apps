@@ -6,6 +6,12 @@ import Contact from '../components/contact/Contact'
 import SocialList from '../components/contact/SocialList'
 import Title from '../components/styled/title/Title'
 
+type SocialType =
+  | 'github'
+  | 'twitter'
+  | 'instagram'
+  | 'marcellable'
+  | 'masiuciszek'
 interface Social<T> {
   name: T
   url: T
@@ -14,7 +20,7 @@ interface Data {
   site: {
     siteMetadata: {
       title: string
-      social: Social<string>[]
+      social: Social<SocialType>[]
     }
   }
 }
@@ -23,6 +29,7 @@ const ContactPage: React.FC<PageProps<Data>> = ({ data }) => {
   const {
     siteMetadata: { social, title },
   } = data.site
+
   return (
     <Layout>
       <Page>

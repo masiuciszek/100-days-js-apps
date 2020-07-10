@@ -25,6 +25,14 @@ module.exports = {
         name: 'github',
         url: 'https://github/masiuciszek',
       },
+      {
+        name: 'marcellable',
+        url: 'https://marcellable.com',
+      },
+      {
+        name: 'masiuciszek',
+        url: 'https://masiuciszek.com',
+      },
     ],
     paths: [
       {
