@@ -5,10 +5,11 @@ interface IStyledTitle {
   sizeH3?: string
   sizeH5?: string
   bg?: string
+  center?: boolean
 }
 export const StyledTitle = styled.section<IStyledTitle>`
   padding: ${({ theme, bg }) => '2rem 0.5rem' || '1rem 0.5rem'};
-
+  text-align: ${({ center }) => center && 'center'};
   background: ${({ theme, bg }) => bg || 'none'};
   box-shadow: ${({ theme, bg }) => (bg ? theme.shadow.lightShadow : 'none')};
   color: ${({ theme, bg }) => (bg ? theme.colors.white : theme.colors.primary)};

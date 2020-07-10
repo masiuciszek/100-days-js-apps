@@ -7,43 +7,60 @@ module.exports = {
     author: {
       name: 'Marcell Ciszek',
       url: 'https://marcellable.com',
-      email: 'ciszekmarcell@gmail.com'
+      email: 'ciszekmarcell@gmail.com',
+      twitter: 'https://twitter/CiszekMarcell',
+      instagram: 'https://instagram/masiuciszek',
+      github: 'https://github/masiuciszek',
     },
+    social: [
+      {
+        name: 'instagram',
+        url: 'https://instagram/masiuciszek',
+      },
+      {
+        name: 'twitter',
+        url: 'https://twitter/CiszekMarcell',
+      },
+      {
+        name: 'github',
+        url: 'https://github/masiuciszek',
+      },
+    ],
     paths: [
       {
         name: 'home',
-        path: '/'
+        path: '/',
       },
       {
         name: 'projects',
-        path: '/projects'
+        path: '/projects',
       },
       {
         name: 'contact',
-        path: '/contact'
-      }
-    ]
+        path: '/contact',
+      },
+    ],
   },
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'content',
-        path: `${__dirname}/src/content`
-      }
+        path: `${__dirname}/src/content`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images/`
-      }
+        path: `${__dirname}/src/images/`,
+      },
     },
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Add any options here
-      }
+      },
     },
     {
       resolve: 'gatsby-transformer-remark',
@@ -52,8 +69,8 @@ module.exports = {
           {
             resolve: 'gatsby-remark-responsive-iframe',
             options: {
-              wrapperStyle: 'margin-bottom: 1rem'
-            }
+              wrapperStyle: 'margin-bottom: 1rem',
+            },
           },
           'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
@@ -63,24 +80,24 @@ module.exports = {
             options: {
               maxWidth: 1140,
               quality: 90,
-              linkImagesToOriginal: false
-            }
-          }
-        ]
-      }
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
+      },
     },
     'gatsby-transformer-json',
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com'
-      }
+        siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com',
+      },
     },
     'gatsby-plugin-emotion',
     'gatsby-plugin-typescript',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
-    `gatsby-plugin-playground`
-  ]
+    `gatsby-plugin-playground`,
+  ],
 }

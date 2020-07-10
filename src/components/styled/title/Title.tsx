@@ -9,20 +9,31 @@ interface P {
   sizeH5?: string
   bg?: string
   keywords?: string[]
+  center?: boolean
 }
 
-const Title: React.FC<P> = ({ mainTitle, subTitle, sizeH3, sizeH5, bg, keywords }) => {
+const Title: React.FC<P> = ({
+  mainTitle,
+  subTitle,
+  sizeH3,
+  sizeH5,
+  bg,
+  keywords,
+  center,
+}) => {
   return (
-    <StyledTitle sizeH3={sizeH3} sizeH5={sizeH5} bg={bg}>
+    <StyledTitle sizeH3={sizeH3} sizeH5={sizeH5} bg={bg} center={center}>
       <h3> {mainTitle} </h3>
       <h5>{subTitle}</h5>
-      <ul className="keywords">
-        {keywords?.map((x, i) => (
-          <li key={x}>
-            <Link to="/">{i === keywords.length - 1 ? '' : `${x} | `}</Link>
-          </li>
-        ))}
-      </ul>
+      {keywords && keywords.length > 0 && (
+        <ul className="keywords">
+          {keywords?.map((x, i) => (
+            <li key={x}>
+              <Link to="/">{i === keywords.length - 1 ? '' : `${x} | `}</Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </StyledTitle>
   )
 }
