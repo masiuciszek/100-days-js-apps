@@ -15,7 +15,7 @@ const TagsList: React.FC<PageProps<Data, PageContext>> = ({ pageContext }) => {
 
   return (
     <Layout>
-      <Page>
+      <TagsListPage>
         <StyledList>
           {keywords.map((keyword, i) => (
             <KeyWord
@@ -24,10 +24,15 @@ const TagsList: React.FC<PageProps<Data, PageContext>> = ({ pageContext }) => {
             />
           ))}
         </StyledList>
-      </Page>
+      </TagsListPage>
     </Layout>
   )
 }
+
+const TagsListPage = styled(Page)`
+  margin: 6rem auto;
+`
+
 const StyledList = styled.ul`
   margin: 2rem auto;
   display: grid;

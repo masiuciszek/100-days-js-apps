@@ -47,6 +47,18 @@ const createTagPages = (createPage, projects) => {
       keywords: keyWords.sort(),
     },
   })
+
+  keyWords.forEach(keyword => {
+    const projects = projectByTag[keyword]
+    createPage({
+      path: `/tags/${keyword}`,
+      component: singleTag,
+      context: {
+        projects,
+        keyword,
+      },
+    })
+  })
 }
 
 exports.createPages = async ({

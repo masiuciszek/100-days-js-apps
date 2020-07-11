@@ -53,7 +53,7 @@ const Footer: React.FC = (): ReactElement => {
       </FooterTitle>
       <FooterSocial>
         {siteMetadata.social.map(({ name, url }) => (
-          <FooterLink name={name} url={url} />
+          <FooterLink key={name} name={name} url={url} />
         ))}
       </FooterSocial>
     </FooterStyles>
